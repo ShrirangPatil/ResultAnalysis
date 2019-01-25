@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Result Analysis</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+
+<style>
+table {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+}
+
+td, th {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+}
+
+tr:nth-child(even) {
+    background-color: #dddddd;
+}
+</style>
+
+<body background="" style="background: #f1e9e9;padding-top: 50px; padding-left: 50px; padding-right: 50px">
+    <div class = "container-fluid" style="height: 60px;">
+        <div class = "row h-100 align-items-center" style=" background: #ffffff; padding-left: 40%; margin-top: 10px;">
+            <div class = "col-12" style="">
+                <h2>Select Subject Code</h2>
+            </div>
+        </div>
+        <div class="row h-100 align-items-center" style=" background: #ffffff; padding-left: 10%; padding-right: 10%;padding-top: 2%;padding-bottom: 2%; margin-top: 50px;">
+          <div class = "col-12" style="">
+            <h5><Strong>Input File Content.</Strong></h5>
+            <Strong>Select the subject code for analysis.</Strong>
+            <table>
+              
+              <tr> 
+                {% for i in fileContent %}
+                  {% for j in i %}
+                    <td>
+                      <Strong>{{ j }}</Strong>
+                    </td>
+                  {% endfor %}
+              </tr> 
+                {% endfor %}
+            </table>
+          </div>
+        </div>
+        <div class="row h-100 align-items-center" style=" background: #ffffff; padding-left: 40%; margin-top: 50px;
+        margin-bottom: 50px">
+            <div class="col-12">
+                <form action="/analysis/select/" method='POST' enctype="multipart/form-data">
+                  <div>
+                    {% csrf_token %}
+                    {{ selectForm.as_table }}
+                  </div>
+                  <div style="padding-left: 80%">
+                    <button class="btn btn-primary" type="Submit">NEXT</button>
+                  </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</body>
