@@ -44,9 +44,10 @@ def select(request):
 			picked = form.cleaned_data.get('subjectCode')
 			#print(picked)
 			analysis_fun(picked)
-			messages.success(request, 'File analysis.csv created')
+			messages.success(request, 'File Analysis Successful')
 		else:
 			messages.error(request, 'Failed to validate')
+			return redirect('/analysis/home')
 		return redirect('/analysis/result')
 	else:
 		try:

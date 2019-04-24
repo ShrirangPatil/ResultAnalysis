@@ -1,9 +1,9 @@
 from django import forms
 import csv
 
+
 class homeForm(forms.Form):
 	file = forms.FileField(label = "CSV File")
-
 
 def getSubjectCode():
 	with open('analysis/static/media/result.csv', 'r') as csvfile:
