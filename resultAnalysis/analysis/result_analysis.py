@@ -86,9 +86,9 @@
 # write dictionaty to analysis.csv
 
 import csv
-def analysis_fun(userSelectedSubCode=[]):
+def analysis_fun(fileName, userSelectedSubCode=[]):
     try:
-        with open('analysis/static/media/result.csv', 'r') as csvfile:
+        with open('analysis/static/media/'+fileName+'.csv', 'r') as csvfile:
             results = csv.reader(csvfile, delimiter=',')
 
             subjectCode = next(results, None)
@@ -136,7 +136,7 @@ def analysis_fun(userSelectedSubCode=[]):
                 else:
                     totalNumberOfPassStudents = totalNumberOfPassStudents + 1
 
-        with open('analysis/static/media/analysis.csv', 'w') as csvfile:
+        with open('analysis/static/media/analysis'+fileName+'.csv', 'w') as csvfile:
             writeAnalysis = csv.writer( csvfile , delimiter=',' )
             writeAnalysis.writerow( [ 'SubjectCode' , 'S+' , 'S' , 'A' , 'B' , 'C' , 
                                       'D' , 'E' , 'F' , 'NE' , 'NP' , 'PP', 
