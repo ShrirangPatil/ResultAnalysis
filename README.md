@@ -21,3 +21,6 @@ Result will be displayed and you can download it by clicking at Download button.
 	http://127.0.0.1:8000/analysis/home/
 	or 
 	http://localhost:8000/analysis/home/
+
+### The website's live url
+http://result-analysis.herokuapp.com/
